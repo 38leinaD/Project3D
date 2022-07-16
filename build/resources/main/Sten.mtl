@@ -1,0 +1,14 @@
+# Blender MTL File: 'Sten.blend'
+# Material Count: 1
+
+newmtl Material
+Ns 96.078431
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 1
+map_Kd sten_diff.png
+map_Ks sten_spec.png
+map_Bump sten_norm.png

@@ -1,0 +1,32 @@
+plugins {
+    id 'application'
+    id 'com.stehno.natives' version '0.3.1'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation ('org.lwjgl.lwjgl:lwjgl:2.9.1')
+    implementation ('org.lwjgl.lwjgl:lwjgl_util:2.9.1')
+    implementation ('org.slick2d:slick2d-core:1.0.1')
+    implementation 'commons-io:commons-io:2.4'
+
+    runtimeClasspath ('org.lwjgl.lwjgl:lwjgl-platform:2.9.1')
+
+}
+
+application {
+    mainClass = 'de.fruitfly.Game'
+}
+
+natives {
+    configurations = ['runtimeClasspath']
+}
+
+tasks.named('run').get().dependsOn 'includeNatives'
+
+tasks.withType(JavaExec) {
+    systemProperty "java.library.path", "./build/natives"
+}
